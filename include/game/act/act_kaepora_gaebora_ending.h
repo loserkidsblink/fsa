@@ -41,6 +41,7 @@ public:
     void fn_8036003C();
     void fn_80360914();
     void updateFacing();
+    void aimAtTarget();
     void pickStepTable();
     // Owned by this unit (0x8035F3C0); takes this and returns a byte, looped
     // on in update().
