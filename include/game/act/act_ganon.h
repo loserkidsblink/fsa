@@ -23,8 +23,8 @@ public:
     /* 0x14 */ virtual void update(); // fn_80192D98
     /* 0x20 */ virtual void draw();   // fn_80192090
     void fn_80196020(s32 player);
-    void fn_80196208(s32 mode);
-    void fn_801964AC();
+    /* 0x54 */ virtual void fn_801964AC();
+    /* 0x58 */ virtual void fn_80196208(s32 mode);
     void fn_80192BD8();
 
     // SHARED-EDIT: carved from field_0x230[0x28C - 0x230] .. [0x328 - 0x2FC] (game/act_ganon.cpp).

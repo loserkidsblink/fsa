@@ -22,24 +22,41 @@ s32 lbl_804C1BC0[4];
 JGeometry::TVec3f lbl_804C1BD0[4];
 JGeometry::TVec3f lbl_804C1C00[4];
 
-// Animation tables (.data 0x804A1FF8, not written as source here): per animation, a first
-// frame, and for each step the frame offset (0xFF ends the animation) and its length, for the
-// body (field_0x25c) and the second layer (field_0x260).
-extern const s16 lbl_804A1FF8[16];
-extern const u8* const lbl_804A2118[16];
-extern const u8* const lbl_804A2158[16];
-extern const u8* const lbl_804A2298[16];
-extern const u8* const lbl_804A22D8[16];
-extern const u16 lbl_804A2318[6][4];
-extern const u32 lbl_804A2348[5];
-extern const s32 lbl_804A235C[5];
-extern const f32 lbl_804A2370[5][2];
+// Animation tables (.data 0x804A1FF8 and the scripts they point to in .data / .sdata, not written as
+// source here): per animation, a first frame, and for each step the frame offset (0xFF ends the
+// animation) and its length, for the body (field_0x25c) and the second layer (field_0x260).
+extern s16 lbl_804A1FF8[16];
+extern u8* lbl_804A2118[16];
+extern u8* lbl_804A2158[16];
+extern u8* lbl_804A2298[16];
+extern u8* lbl_804A22D8[16];
+extern s32 lbl_80539FE8;
+
+u16 lbl_804A2318[6][4] = {
+    0x374, 0x375, 0x193, 0x194,
+    0x378, 0x379, 0x197, 0x198,
+    0x372, 0x373, 0x191, 0x192,
+    0x376, 0x377, 0x195, 0x196,
+    0x368, 0x369, 0x36C, 0x36D,
+    0x366, 0x367, 0x36A, 0x36B,
+};
+u32 lbl_804A2348[5] = {'STAL', 'STAL', 'STAL', 'SLR4', 'SLR4'};
+s32 lbl_804A235C[5] = {4, 4, 4, 6, 0x10006};
+f32 lbl_804A2370[5][2] = {
+    {-24.0f, 0.0f}, {0.0f, 0.0f}, {24.0f, 0.0f}, {0.0f, -16.0f}, {0.0f, -8.0f},
+};
+// Model / animation file names (.data 0x804A2398, 0x804A2484); their strings start before this
+// unit's .rodata split, so they stay external here.
 extern const char* const lbl_804A2398[59];
 extern const char* const lbl_804A2484[59];
-extern const f32 lbl_804A2570[16][2];
+f32 lbl_804A2570[16][2] = {
+    {32.0f, 80.0f}, {0.0f, 88.0f}, {8.0f, -48.0f}, {8.0f, -48.0f},
+    {8.0f, -48.0f}, {-24.0f, -40.0f}, {-40.0f, 0.0f}, {-40.0f, 0.0f},
+    {-40.0f, 0.0f}, {0.0f, -48.0f}, {0.0f, -48.0f}, {0.0f, -48.0f},
+    {-100.0f, 88.0f}, {0.0f, 0.0f}, {0.0f, 0.0f}, {0.0f, 0.0f},
+};
 u8 lbl_8053AB90;
 u8 lbl_8053AB91;
-extern s32 lbl_80539FE8;
 
 void fn_80154718(const JGeometry::TVec3f* pos);
 void fn_801546F4(JGeometry::TBox2f* dst, const JGeometry::TBox2f* src);
